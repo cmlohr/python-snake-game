@@ -34,13 +34,16 @@ while game_on:
         score_b.sb_refresh()
     # wall
     if snake.head.xcor() > 281 or snake.head.xcor() < -281 or snake.head.ycor() > 281 or snake.head.ycor() < -281:
-        score_b.game_over()
-        game_on = False
+        score_b.sb_reset()
+        snake.snake_reset()
+
 
     # tail
     for segments in snake.segment[1:]:
         if snake.head.distance(segments) < 10:
-            game_on = False
-            score_b.game_over()
+            score_b.sb_reset()
+            snake.snake_reset()
+
+
 
 screen.exitonclick()
